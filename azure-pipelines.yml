@@ -1,0 +1,19 @@
+pool:
+  name: Azure Pipelines
+  vmImage: ubuntu-16.04
+
+steps:
+- task: DockerCompose@0
+  displayName: 'Run a docker-compose command'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'dockerhub remibou'
+    dockerComposeFile: 'docker-compose.yml'
+    dockerComposeCommand: 'up --renew-anon-volumes --exit-code-from cypress --build'
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    targetPath: Toss.Tests.E2E.Cypress/cypress/videos/
+    artifact: 'Cypress videos'
+  condition: succeededOrFailed()
