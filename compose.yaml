@@ -20,3 +20,12 @@ services:
       - 80:80
   ravendb:
     image: ravendb/ravendb
+  cypress:
+    image: cypress/included:3.4.1
+    depends_on:
+      - web
+    environment:
+      - CYPRESS_baseUrl=http://web
+    working_dir: /e2e
+    volumes:
+      - ./Toss.Tests.E2E.Cypress/:/e2e
