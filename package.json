@@ -1,0 +1,14 @@
+{
+  "name": "https-remibou.github.io-test-a-blazor-app-with-cypress-",
+  "version": "1.0.0",
+  "description": "Following the tutorial at https://remibou.github.io/Test-a-Blazor-App-with-Cypress/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^13.6.1"
+  }
+}
